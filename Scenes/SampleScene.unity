@@ -1357,19 +1357,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'this
-
-    is
-
-    some
-
-    text
-
-    that
-
-    will
-
-    be'
+  m_Text: ABCDEFG
 --- !u!222 &1513307572
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1713,15 +1701,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'this
+  m_Text: 'ABCD
 
-    is
+    ABCDF
 
-    the
-
-    changed
-
-    text'
+    ABCDEF'
 --- !u!222 &1980240453
 CanvasRenderer:
   m_ObjectHideFlags: 0
