@@ -1711,7 +1711,11 @@ MonoBehaviour:
 
     is
 
-    some'
+    some
+
+    text
+
+    changed'
 --- !u!222 &1980240453
 CanvasRenderer:
   m_ObjectHideFlags: 0

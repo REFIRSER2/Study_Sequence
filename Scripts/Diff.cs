@@ -46,9 +46,7 @@ public class Diff : MonoBehaviour
         List<int> alreadyB = new List<int>();
 
         right_Text.text = "";
-
-        if (aStr_Arr.Length <= bStr_Arr.Length)
-        {
+        
             int aIndex = 0;
             List<int> check = new List<int>();
             foreach (var aStr in aStr_Arr)
@@ -126,87 +124,6 @@ public class Diff : MonoBehaviour
                     right_Text.text += "<color=green>+ " + bStr_Arr[i] + "</color>\n"; 
                 }  
             }
-        }
-        else
-        {
-            int aIndex = 0;
-            List<int> check = new List<int>();
-            foreach (var aStr in aStr_Arr)
-            {
-                bool isCheck = false;
-
-                int bIndex = 0;
-                foreach (var bStr in bStr_Arr)
-                {
-                    if (alreadyB.Contains(bIndex))
-                    {
-                        bIndex++;
-                        continue;
-                    }
-
-                    int[,] compare_Arr;
-                    compare_Arr = new int[aStr.Length+1,bStr.Length+1]; 
-                    
-                    int m_Start= 1, m_End = aStr.Length;
-                    int n_Start = 1, n_End = bStr.Length;
-                    
-                    while (m_Start <= m_End)
-                    {
-                        if (aStr[m_Start-1] == bStr[n_Start-1])
-                        {
-                            //일치하는 문자가 있을시 이전 대각선 값 + 1
-                            compare_Arr[m_Start, n_Start] = compare_Arr[m_Start - 1, n_Start - 1] + 1;
-                        }
-                        else
-                        {
-                            //일치하는 문자가 없을시 
-                            //가로 줄 인덱스가 1일 경우 바로 위 값을 가져옴 
-                            //또는 바로 위 값이 바로 옆 값보다 큰 경우 값을 바로 위 값으로 설정함
-                            compare_Arr[m_Start, n_Start] = n_Start == 1 || compare_Arr[m_Start - 1, n_Start] >= compare_Arr[m_Start, n_Start - 1] ? 
-                                compare_Arr[m_Start - 1, n_Start] : compare_Arr[m_Start, n_Start - 1];
-                        }
-
-                        n_Start++;
-
-                        if (n_Start > n_End)
-                        {
-                            m_Start++;
-                            n_Start = 1;
-                        }
-                    }
-                    
-                    string diff = Trace(compare_Arr, aStr, bStr);
-
-                    if (diff == bStr && !check.Contains(bIndex))
-                    {
-                        isCheck = true;
-                        check.Add(bIndex);
-                    }
-
-
-                    bIndex++;
-                }
-
-                if (isCheck)
-                {
-                    right_Text.text += aStr + "\n";
-                }
-                else
-                {
-                    right_Text.text += "<color=red>- " + aStr + "</color>\n";
-                }
-
-                aIndex++;
-            }
-
-            for (int i = 0; i < bStr_Arr.Length; i++)
-            {
-                if (!check.Contains(i))
-                {
-                    right_Text.text += "<color=green>+ " + bStr_Arr[i] + "</color>\n"; 
-                }  
-            }
-        }
 
     }
     
