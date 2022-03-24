@@ -49,11 +49,15 @@ public class Diff : MonoBehaviour
         
             int aIndex = 0;
             List<int> check = new List<int>();
+            Queue<string> aQueue = new Queue<string>();
+            Queue<string> bQueue = new Queue<string>();
             foreach (var aStr in aStr_Arr)
             {
                 bool isCheck = false;
 
                 int bIndex = 0;
+                int min = 0, index = -1;
+                string added = "";
                 foreach (var bStr in bStr_Arr)
                 {
                     if (alreadyB.Contains(bIndex))
@@ -70,6 +74,7 @@ public class Diff : MonoBehaviour
                     
                     while (m_Start <= m_End)
                     {
+                        //Debug.Log("n : " + n_Start);
                         if (aStr[m_Start-1] == bStr[n_Start-1])
                         {
                             //일치하는 문자가 있을시 이전 대각선 값 + 1
@@ -95,10 +100,14 @@ public class Diff : MonoBehaviour
                     
                     string diff = Trace(compare_Arr, aStr, bStr);
 
-                    if (diff == bStr && !check.Contains(bIndex))
+                    //Debug.Log("diff : " + diff);
+                    //Debug.Log("a : " + aStr);
+                    //Debug.Log("b : " + bStr);
+                    if (diff == bStr && diff.Length == aStr.Length && !check.Contains(bIndex))
                     {
                         isCheck = true;
                         check.Add(bIndex);
+                        break;
                     }
 
 
@@ -111,7 +120,51 @@ public class Diff : MonoBehaviour
                 }
                 else
                 {
+                    aQueue.Enqueue(aStr);
                     right_Text.text += "<color=red>- " + aStr + "</color>\n";
+
+                    /*if (aStr_Arr.Length >= bStr_Arr.Length)
+                    {
+                        for (int i = 0; i < bStr_Arr.Length; i++)
+                        {
+                            Debug.Log("i : " + i + " " + check.Contains(i));
+                            if (!check.Contains(i))
+                            {
+                                //right_Text.text += "<color=green>+ " + bStr_Arr[i] + "</color>\n";   
+                                check.Add(i);
+                                break;
+                            }                        
+                        }                        
+                    }
+                    else
+                    {
+                        Debug.Log("a index : " + aIndex);
+                        Debug.Log("b index : " + bIndex);
+                        for (int i = 0; i < bStr_Arr.Length; i++)
+                        {
+                            Debug.Log("i : " + i + " " + check.Contains(i));
+                            if (!check.Contains(i))
+                            {
+                                //right_Text.text += "<color=green>+ " + bStr_Arr[i] + "</color>\n";   
+                                check.Add(i);
+                                break;
+                            }                        
+                        }
+
+                        if (bIndex > aIndex)
+                        {
+                            for (int i = 0; i < bStr_Arr.Length; i++)
+                            {
+                                if (!check.Contains(i))
+                                {
+                                    //right_Text.text += "<color=green>+ " + bStr_Arr[i] + "</color>\n";   
+                                    check.Add(i);
+                                }                        
+                            }                            
+                        }
+                    }*/
+
+
                 }
 
                 aIndex++;
@@ -121,8 +174,14 @@ public class Diff : MonoBehaviour
             {
                 if (!check.Contains(i))
                 {
+                    bQueue.Enqueue(bStr_Arr[i]);
+                    //right_Text.text += "<color=red>- " + aStr_Arr[i] + "</color>\n"; 
                     right_Text.text += "<color=green>+ " + bStr_Arr[i] + "</color>\n"; 
-                }  
+                }
+                else
+                {
+                    //right_Text.text += bStr_Arr[i] + "\n";
+                }
             }
 
     }

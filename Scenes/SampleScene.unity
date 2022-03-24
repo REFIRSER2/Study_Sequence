@@ -912,8 +912,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -383, y: 32.69043}
-  m_SizeDelta: {x: 200, y: 400}
+  m_AnchoredPosition: {x: -285, y: 46.845}
+  m_SizeDelta: {x: 570, y: 428.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1008205253
 MonoBehaviour:
@@ -1020,8 +1020,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -383, y: 32.69043}
-  m_SizeDelta: {x: 200, y: 400}
+  m_AnchoredPosition: {x: -285, y: 46.845}
+  m_SizeDelta: {x: 570, y: 428.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063324106
 MonoBehaviour:
@@ -1357,13 +1357,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'this
+  m_Text: 'function
 
-    is
+    A
 
-    some
-
-    text'
+    end'
 --- !u!222 &1513307572
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1707,15 +1705,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'thiss
+  m_Text: 'functions
 
-    is
+    B
 
-    some
-
-    text
-
-    changed'
+    end'
 --- !u!222 &1980240453
 CanvasRenderer:
   m_ObjectHideFlags: 0
