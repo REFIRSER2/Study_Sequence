@@ -1357,7 +1357,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ABCDEFG
+  m_Text: 'this
+
+    is
+
+    some
+
+    text'
 --- !u!222 &1513307572
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1701,11 +1707,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'ABCD
+  m_Text: 'thiss
 
-    ABCDF
+    is
 
-    ABCDEF'
+    some'
 --- !u!222 &1980240453
 CanvasRenderer:
   m_ObjectHideFlags: 0
