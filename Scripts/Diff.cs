@@ -120,51 +120,7 @@ public class Diff : MonoBehaviour
                 }
                 else
                 {
-                    aQueue.Enqueue(aStr);
                     right_Text.text += "<color=red>- " + aStr + "</color>\n";
-
-                    /*if (aStr_Arr.Length >= bStr_Arr.Length)
-                    {
-                        for (int i = 0; i < bStr_Arr.Length; i++)
-                        {
-                            Debug.Log("i : " + i + " " + check.Contains(i));
-                            if (!check.Contains(i))
-                            {
-                                //right_Text.text += "<color=green>+ " + bStr_Arr[i] + "</color>\n";   
-                                check.Add(i);
-                                break;
-                            }                        
-                        }                        
-                    }
-                    else
-                    {
-                        Debug.Log("a index : " + aIndex);
-                        Debug.Log("b index : " + bIndex);
-                        for (int i = 0; i < bStr_Arr.Length; i++)
-                        {
-                            Debug.Log("i : " + i + " " + check.Contains(i));
-                            if (!check.Contains(i))
-                            {
-                                //right_Text.text += "<color=green>+ " + bStr_Arr[i] + "</color>\n";   
-                                check.Add(i);
-                                break;
-                            }                        
-                        }
-
-                        if (bIndex > aIndex)
-                        {
-                            for (int i = 0; i < bStr_Arr.Length; i++)
-                            {
-                                if (!check.Contains(i))
-                                {
-                                    //right_Text.text += "<color=green>+ " + bStr_Arr[i] + "</color>\n";   
-                                    check.Add(i);
-                                }                        
-                            }                            
-                        }
-                    }*/
-
-
                 }
 
                 aIndex++;
@@ -174,7 +130,6 @@ public class Diff : MonoBehaviour
             {
                 if (!check.Contains(i))
                 {
-                    bQueue.Enqueue(bStr_Arr[i]);
                     //right_Text.text += "<color=red>- " + aStr_Arr[i] + "</color>\n"; 
                     right_Text.text += "<color=green>+ " + bStr_Arr[i] + "</color>\n"; 
                 }
